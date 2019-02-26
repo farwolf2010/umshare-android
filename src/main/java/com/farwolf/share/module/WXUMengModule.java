@@ -105,23 +105,23 @@ public class WXUMengModule extends WXModuleBase {
         String  userName =info.get("userName")+"";
 //        BaseMediaObject media=null;
         ShareAction shareAction=null;
-        if("image".equals(platform)){
+        if("image".equals(shareType)){
             UMImage img=new UMImage(getContext(),image);
             img.setTitle(shareTitle);//标题
             img.setThumb(new UMImage(getActivity(), image));  //缩略图
             img.setDescription(shareText);//描述
             shareAction= new ShareAction(getActivity())
                     .withMedia(img);
-        }else if("textimage".equals(platform)){
+        }else if("textimage".equals(shareType)){
 
-        }else if("music".equals(platform)){
+        }else if("music".equals(shareType)){
             UMusic music=new UMusic(shareUrl);
             music.setTitle(shareTitle);//标题
             music.setThumb(new UMImage(getActivity(), image));  //缩略图
             music.setDescription(shareText);//描述
             shareAction= new ShareAction(getActivity())
                     .withMedia(music);
-        }else if("video".equals(platform)){
+        }else if("video".equals(shareType)){
             UMVideo video=new UMVideo(shareUrl);
             video.setTitle(shareTitle);//标题
             video.setThumb(new UMImage(getActivity(), image));  //缩略图
@@ -129,7 +129,7 @@ public class WXUMengModule extends WXModuleBase {
             shareAction= new ShareAction(getActivity())
                     .withMedia(video);
 
-        }else if("miniProgram".equals(platform)){
+        }else if("miniProgram".equals(shareType)){
             UMMin program=new UMMin(shareUrl);
             program.setPath(path);
             program.setTitle(shareTitle);//标题
